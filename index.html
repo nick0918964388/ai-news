@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 新聞週報 | Claude · Gemini · ChatGPT · Clawdbot</title>
+    <title>AI 新聞週報 | Claude · ChatGPT · Gemini · Clawdbot</title>
     <style>
         * {
             margin: 0;
@@ -140,115 +140,75 @@
         </header>
 
         <article class="news-card">
-            <span class="news-tag tag-security">🔐 資安警報</span>
-            <h2 class="news-title">Check Point 揭露 Claude Code 重大安全漏洞，惡意專案設定檔可觸發 RCE 並外洩 API 金鑰</h2>
-            <p class="news-meta">📰 iThome · 3 天前</p>
-            <p class="news-summary">
-                資安業者 Check Point 揭露 Anthropic 的 Claude Code 存在多項安全漏洞。攻擊者可透過惡意儲存庫中的專案設定檔（如 .claude/settings.json、.mcp.json）觸發遠端程式碼執行（RCE），甚至竊取開發者的 Anthropic API 金鑰。其中兩項漏洞被評為高風險（CVSS 8.7）。Anthropic 已完成修補，建議用戶更新至 2.0.65 版或更新版本。
-            </p>
-            <div class="insight-box">
-                <h4>🔍 洞見觀察</h4>
-                <p>這起事件標誌著「AI 開發工具供應鏈攻擊」時代的來臨。過去專案設定檔只是描述開發環境，但在 AI 工具高度自動化的情境下，這些設定可能直接影響程式執行行為。開發者從「執行不可信程式碼」的警覺，必須擴展到「開啟不可信專案」也可能遭受攻擊。</p>
-            </div>
-            <div class="impact-box">
-                <h4>🌐 影響範圍</h4>
-                <p><strong>開發者：</strong>需要重新審視 AI 開發工具的安全設定，避免直接 clone 不可信的 repo<br>
-                <strong>企業：</strong>需建立 AI 工具使用的安全政策，特別是針對 API 金鑰管理<br>
-                <strong>市場：</strong>預期 AI 開發工具的安全審計需求將大幅增加</p>
-            </div>
-            <a href="https://www.ithome.com.tw/news/174267" target="_blank" class="source-link">🔗 閱讀原文 →</a>
-        </article>
-
-        <article class="news-card">
             <span class="news-tag tag-claude">✨ Claude</span>
-            <h2 class="news-title">Anthropic 推出 Claude Code Review：多代理 AI 架構，精準抓漏且誤判率不到 1%</h2>
-            <p class="news-meta">📰 Storm.mg · 2 天前</p>
+            <h2 class="news-title">Anthropic 推出 Claude Code Review：多代理 AI 架構審查程式碼</h2>
+            <p class="news-meta">📰 The New Stack · 3 days ago</p>
             <p class="news-summary">
-                Anthropic 發布 Claude Code Review 研究預覽版，採用「多代理並行運作」架構。當開發者提交 Pull Request 後，系統會同時派出多組 AI 代理從不同角度檢查程式碼，再由驗證代理進行交叉確認、去除重複、過濾假陽性，平均 20 分鐘完成一次審查。該功能專注於邏輯錯誤而非風格糾正，誤判率低於 1%。
+                隨著 Claude Code、Codex、Cursor 等 AI 編碼工具的興起，開發者產出的程式碼比以往更多，但 Code Review 成為團隊的主要瓶頸。Anthropic 推出 Code Review 功能，採用多代理系統並行審查程式碼，捕捉邏輯錯誤。該功能專為企業設計，平均每次審查費用 $15-25 美元，依 PR 大小和複雜度計價。
             </p>
             <div class="insight-box">
                 <h4>🔍 洞見觀察</h4>
-                <p>這是 Anthropic 為了解決「AI 生成程式碼暴增」而推出的配套措施。過去一年 Claude Code 用戶的單人程式碼產出量成長約 200%，造成 Code Review 嚴重擁塞。「多代理並行」架構展示了 AI Agent 協作的實際應用場景，這種模式預計會成為未來企業級 AI 工具的標準設計。</p>
+                <p>「多代理並行」架構展示了 AI Agent 協作的實際應用場景。Anthropic 選擇「深度優先」策略，不惜成本換取更高品質的 bug 檢測。這反映出企業級 AI 工具正從「便宜夠用」走向「貴但精準」的定位分化。</p>
             </div>
             <div class="impact-box">
                 <h4>🌐 影響範圍</h4>
-                <p><strong>開發者：</strong>資深工程師可從繁瑣的 Code Review 中解放，專注於架構設計<br>
-                <strong>企業：</strong>首波開放 Teams 與 Enterprise 方案，加速大型團隊的開發效率<br>
-                <strong>市場：</strong>500 億美元的程式碼安全審計產業面臨顛覆</p>
+                <p><strong>開發者：</strong>部分開發者批評定價過高，擔心取代資深工程師的角色<br>
+                <strong>企業：</strong>大型團隊可能願意為深度審查付費，小團隊可能選擇較輕量的方案<br>
+                <strong>市場：</strong>500 億美元的程式碼審計產業面臨 AI 顛覆</p>
             </div>
-            <a href="https://www.storm.mg/article/11109816" target="_blank" class="source-link">🔗 閱讀原文 →</a>
+            <a href="https://thenewstack.io/anthropic-launches-a-multi-agent-code-review-tool-for-claude-code/" target="_blank" class="source-link">🔗 Read Original (The New Stack) →</a>
         </article>
 
         <article class="news-card">
-            <span class="news-tag tag-claude">⚠️ Claude</span>
-            <h2 class="news-title">Claude 故障事件：當 AI 停擺，開發者驚覺自己已把一半腦力外包</h2>
-            <p class="news-meta">📰 TechNews 科技新報 · 6 天前</p>
+            <span class="news-tag tag-security">🔐 Security</span>
+            <h2 class="news-title">Anthropic 與 Mozilla 合作：Claude 發現 Firefox 22 個漏洞，14 個為高嚴重性</h2>
+            <p class="news-meta">📰 Anthropic Official · 6 days ago</p>
             <p class="news-summary">
-                2026 年 3 月初，Anthropic 的 Claude AI 工具遭遇多次故障，許多軟體開發者被迫手寫程式碼。有開發者在 Reddit 表示：「我想我會像原始人一樣寫程式碼。」Meta 工程師透露，當 Claude 無法使用時，他會轉向非程式開發任務。Anthropic 將問題歸因於「快速的用戶成長對服務造成壓力」。調查顯示 Claude Code 在 AI 工具中名列前茅，普及程度幾乎等同 3 年前的 GitHub Copilot。
+                Anthropic 與 Mozilla 合作，使用 Claude Opus 4.6 在兩週內發現 Firefox 22 個漏洞，其中 14 個被評為高嚴重性——這幾乎是 2025 年全年 Firefox 高嚴重性漏洞修復數量的五分之一。這些修復已在 Firefox 148.0 版本中推送給數億用戶。此前，Claude 已在測試良好的開源軟體中發現超過 500 個零日漏洞。
             </p>
             <div class="insight-box">
                 <h4>🔍 洞見觀察</h4>
-                <p>這起事件暴露了軟體開發產業對 AI 的深度依賴。當「按一下按鈕就能完成任務」成為常態，開發者的基礎技能是否正在退化？這也引發對 AI 工具韌性的討論——當關鍵基礎設施級別的 AI 服務停擺，整個產業的生產力會瞬間歸零。</p>
+                <p>這是 AI 資安能力的里程碑式展示。Firefox 是世界上最安全、測試最完善的開源專案之一，Claude 能在如此嚴格的環境中發現高嚴重性漏洞，證明 AI 已經達到「加速漏洞發現」的實用門檻。值得注意的是，Anthropic 選擇與開源社群合作而非獨自獲利，展現了「負責任 AI」的承諾。</p>
             </div>
             <div class="impact-box">
                 <h4>🌐 影響範圍</h4>
-                <p><strong>開發者：</strong>需要重新思考 AI 依賴程度，保持基礎技能的熟練度<br>
-                <strong>企業：</strong>部分公司已將 AI 使用納入績效評估，但也擔心技能退化問題<br>
-                <strong>市場：</strong>AI 工具的 SLA（服務等級協議）和備援方案將成為企業選購的重要考量</p>
+                <p><strong>資安產業：</strong>AI 輔助漏洞發現將成為標準實踐，滲透測試的效率將大幅提升<br>
+                <strong>開源社群：</strong>AI 可能成為開源專案安全審計的重要資源<br>
+                <strong>惡意攻擊者：</strong>同樣的技術也可能被用於發現漏洞進行攻擊，資安將進入 AI 軍備競賽</p>
             </div>
-            <a href="https://technews.tw/2026/03/06/if-ai-malfunctions-one-day/" target="_blank" class="source-link">🔗 閱讀原文 →</a>
-        </article>
-
-        <article class="news-card">
-            <span class="news-tag tag-gemini">💙 Gemini</span>
-            <h2 class="news-title">Google Gemini 全面進化：文件、試算表、簡報一鍵智慧產生</h2>
-            <p class="news-meta">📰 TechNews 科技新報 · 2 天前</p>
-            <p class="news-summary">
-                Google 大幅更新 Gemini 在 Workspace 的功能。在 Google 文件中，使用者只需描述想創建的內容，Gemini 就能根據指示產生初稿，還能分析文件語調並搭配寫作風格。在試算表中，可透過簡單提示產生表格並自動填充數據。在簡報中，AI 能自動產生 PPT 並調整格式。新功能目前僅開放給 Google AI Pro 和 Ultra 訂閱者，且只支援英文。
-            </p>
-            <div class="insight-box">
-                <h4>🔍 洞見觀察</h4>
-                <p>Google 正在將 Gemini 深度整合到 Workspace 生態系，這是對 Microsoft Copilot 的正面回應。「搭配寫作風格」功能特別值得關注——AI 不只是產生內容，還能學習並模仿特定的寫作風格，這對企業品牌一致性有重要意義。</p>
-            </div>
-            <div class="impact-box">
-                <h4>🌐 影響範圍</h4>
-                <p><strong>個人用戶：</strong>日常文書工作效率大幅提升，但需付費訂閱<br>
-                <strong>企業：</strong>多人協作文件可透過 AI 維持一致的語調和風格<br>
-                <strong>市場：</strong>Microsoft 與 Google 在企業 AI 生產力工具的競爭持續白熱化</p>
-            </div>
-            <a href="https://technews.tw/2026/03/11/google-wants-gemini-to-read-your-mind-at-work/" target="_blank" class="source-link">🔗 閱讀原文 →</a>
-        </article>
-
-        <article class="news-card">
-            <span class="news-tag tag-gemini">🎙️ Gemini</span>
-            <h2 class="news-title">Google 秘密開發 Gemini Live 大升級：個人智慧將帶來更精準的個人化回應</h2>
-            <p class="news-meta">📰 Android Police · 2 天前</p>
-            <p class="news-summary">
-                根據 Google App 17.9.50 版的 APK 逆向分析，Google 正在為 Gemini Live 開發 Personal Intelligence 功能。該功能將連接使用者的 Gmail、Photos、Search 和 YouTube 歷史記錄，讓 Gemini Live 能給出更個人化的語音回應。例如，使用者可以用語音詢問已預訂機票的時間，Gemini Live 會自動存取 Gmail 確認信件來回答。
-            </p>
-            <div class="insight-box">
-                <h4>🔍 洞見觀察</h4>
-                <p>這標誌著 AI 助理從「通用問答」邁向「個人化秘書」的重要轉變。Personal Intelligence 讓 AI 能夠理解使用者的「context」——不只是當下的問題，還包括過去的行為、偏好和資料。這種深度整合將讓 AI 助理真正成為「第二大腦」。</p>
-            </div>
-            <div class="impact-box">
-                <h4>🌐 影響範圍</h4>
-                <p><strong>個人用戶：</strong>語音助理將變得更懂你，但需權衡隱私風險<br>
-                <strong>企業：</strong>企業版可能需要更嚴格的資料存取控制<br>
-                <strong>市場：</strong>Apple、OpenAI 等競爭者將面臨壓力，需要提供類似的個人化體驗</p>
-            </div>
-            <a href="https://www.androidpolice.com/google-is-quietly-working-on-a-big-upgrade-for-gemini-live/" target="_blank" class="source-link">🔗 閱讀原文 →</a>
+            <a href="https://www.anthropic.com/news/mozilla-firefox-security" target="_blank" class="source-link">🔗 Read Original (Anthropic) →</a>
         </article>
 
         <article class="news-card">
             <span class="news-tag tag-chatgpt">🟢 ChatGPT</span>
-            <h2 class="news-title">OpenAI 機器人部門主管辭職：反對 AI 用於戰爭與監控</h2>
-            <p class="news-meta">📰 France 24 · 4 天前</p>
+            <h2 class="news-title">WIRED 深度報導：OpenAI 為何在 AI 編碼革命中落後 Claude Code？</h2>
+            <p class="news-meta">📰 WIRED · 1 day ago</p>
             <p class="news-summary">
-                OpenAI 機器人部門負責人 Caitlin Kalinowski 宣布辭職，抗議公司與美國國防部的合作協議。她表示：「對美國人的無司法監督監控，以及沒有人類授權的致命自主武器，這些問題值得更多審議。」此前，OpenAI 在 Anthropic 拒絕無條件軍事使用後數小時內，便與五角大廈達成協議。CEO Sam Altman 隨後承諾修改合約，確保模型不會被用於國內監控。
+                Claude Code 佔 Anthropic 營收近五分之一，年化營收超過 25 億美元。相比之下，OpenAI 的 Codex 截至一月底年化營收約 10 億美元。Sam Altman 承認「先發優勢很值錢，我們在 ChatGPT 有過這種優勢」，但認為現在是 OpenAI 重押編碼的正確時機。他認為 Codex「可能是通往 AGI 最有可能的路徑」，這是一個「罕見的數兆美元市場」。
             </p>
             <div class="insight-box">
                 <h4>🔍 洞見觀察</h4>
-                <p>這起事件揭示了 AI 公司在商業利益與倫理原則之間的張力。Kalinowski 的辭職代表了一種「用腳投票」的抗議方式，也凸顯了 AI 軍事化的爭議。值得注意的是，她批評的不是合作本身，而是「決策過於倉促，缺乏足夠的防護機制」——這反映了 AI 治理的核心挑戰。</p>
+                <p>這篇報導揭示了 AI 產業的戲劇性反轉：曾經的挑戰者 Anthropic 如今在編碼領域領先，而 ChatGPT 的創造者 OpenAI 反而在追趕。這說明在 AI 領域，「最大」不等於「最好」，專注特定場景的產品可以擊敗通用型巨頭。Altman 將 Codex 視為通往 AGI 的路徑，顯示編碼 AI 在 OpenAI 戰略中的核心地位。</p>
+            </div>
+            <div class="impact-box">
+                <h4>🌐 影響範圍</h4>
+                <p><strong>投資者：</strong>AI 編碼工具市場競爭激烈，領導地位隨時可能易主<br>
+                <strong>開發者：</strong>多家競爭者意味著更多選擇和更好的工具<br>
+                <strong>市場：</strong>AI 編碼工具被視為數兆美元市場，將吸引更多資本和人才</p>
+            </div>
+            <a href="https://www.wired.com/story/openai-codex-race-claude-code/" target="_blank" class="source-link">🔗 Read Original (WIRED) →</a>
+        </article>
+
+        <article class="news-card">
+            <span class="news-tag tag-chatgpt">⚠️ ChatGPT</span>
+            <h2 class="news-title">OpenAI 機器人部門主管辭職：反對 AI 用於戰爭與監控</h2>
+            <p class="news-meta">📰 France 24 · 4 days ago</p>
+            <p class="news-summary">
+                OpenAI 機器人部門負責人 Caitlin Kalinowski 宣布辭職，抗議公司與美國國防部的合作協議。她表示：「對美國人的無司法監督監控，以及沒有人類授權的致命自主武器，這些問題值得更多審議。」她批評的不是合作本身，而是「決策過於倉促，缺乏足夠的防護機制」。此前，Anthropic 拒絕無條件軍事使用其技術，數小時後 OpenAI 便與五角大廈達成協議。
+            </p>
+            <div class="insight-box">
+                <h4>🔍 洞見觀察</h4>
+                <p>這起事件揭示了 AI 公司在商業利益與倫理原則之間的張力。Kalinowski 的辭職代表了一種「用腳投票」的抗議方式。值得注意的是，她的批評焦點是「治理程序」而非「合作本身」——這反映了 AI 產業對「如何負責任地與政府合作」仍缺乏共識。</p>
             </div>
             <div class="impact-box">
                 <h4>🌐 影響範圍</h4>
@@ -256,15 +216,15 @@
                 <strong>企業：</strong>需要建立更透明的 AI 使用政策和倫理審查機制<br>
                 <strong>市場：</strong>AI 公司的軍事合作將成為投資者和用戶評估的重要因素</p>
             </div>
-            <a href="https://www.france24.com/en/americas/20260308-openai-robotics-chief-quits-over-ai-potential-use-for-war-and-surveillance-artificial-intelligence-pentagon" target="_blank" class="source-link">🔗 閱讀原文 →</a>
+            <a href="https://www.france24.com/en/americas/20260308-openai-robotics-chief-quits-over-ai-potential-use-for-war-and-surveillance-artificial-intelligence-pentagon" target="_blank" class="source-link">🔗 Read Original (France 24) →</a>
         </article>
 
         <article class="news-card">
             <span class="news-tag tag-chatgpt">🎬 ChatGPT</span>
-            <h2 class="news-title">ChatGPT 即將整合 Sora：一句話就能生成 AI 影片</h2>
-            <p class="news-meta">📰 We Are Social Media · 1 天前</p>
+            <h2 class="news-title">ChatGPT 即將整合 Sora：一句話就能在對話中生成 AI 影片</h2>
+            <p class="news-meta">📰 We Are Social Media · 1 day ago</p>
             <p class="news-summary">
-                根據 The Information 報導，OpenAI 正準備將文字生成影片工具 Sora 直接整合到 ChatGPT 介面中。用戶無需切換到其他應用，只需在對話中輸入提示詞，就能生成短影片。這將讓 ChatGPT 成為集文字、圖片、語音、程式碼、影片於一體的全方位創作平台。
+                根據 The Information 報導，OpenAI 正準備將文字生成影片工具 Sora 直接整合到 ChatGPT 介面中。用戶無需切換到其他應用，只需在對話中輸入提示詞，就能生成短影片。這將讓 ChatGPT 從文字、圖片、語音、程式碼，擴展到影片創作——成為真正的全方位 AI 創作平台。
             </p>
             <div class="insight-box">
                 <h4>🔍 洞見觀察</h4>
@@ -276,12 +236,12 @@
                 <strong>企業：</strong>行銷團隊可快速產出影片內容，縮短 campaign 製作週期<br>
                 <strong>市場：</strong>影片製作軟體和外包服務將面臨 AI 工具的直接競爭</p>
             </div>
-            <a href="https://wersm.com/chatgpt-may-soon-let-users-create-ai-videos-with-sora/" target="_blank" class="source-link">🔗 閱讀原文 →</a>
+            <a href="https://wersm.com/chatgpt-may-soon-let-users-create-ai-videos-with-sora/" target="_blank" class="source-link">🔗 Read Original (WERSM) →</a>
         </article>
 
         <footer>
             <p>由 <a href="https://github.com/clawdbot/clawdbot" target="_blank">Clawdbot</a> 🤖 自動整理與分析</p>
-            <p style="margin-top: 10px;">資料來源：iThome、Storm.mg、TechNews、Android Police、France 24、WERSM</p>
+            <p style="margin-top: 10px;">Sources: The New Stack, Anthropic, WIRED, France 24, WERSM</p>
         </footer>
     </div>
 </body>
