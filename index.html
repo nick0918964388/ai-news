@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>AI 日報 | 2026-03-13</title>
     <style>
         * {
@@ -11,324 +11,387 @@
             box-sizing: border-box;
         }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: #fafafa;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #f5f5f5;
             min-height: 100vh;
-            color: #333;
-            line-height: 1.8;
+            color: #1a1a1a;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-        header {
-            text-align: center;
-            margin-bottom: 50px;
-            padding-bottom: 30px;
+        
+        /* Header */
+        .header {
+            background: #fff;
+            padding: 16px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
             border-bottom: 1px solid #eee;
         }
-        h1 {
-            font-size: 2.2em;
-            color: #1a1a1a;
-            font-weight: 700;
-            margin-bottom: 8px;
-        }
-        .date {
-            color: #666;
-            font-size: 1.1em;
-            font-weight: 500;
-        }
-        .subtitle {
-            color: #999;
-            font-size: 0.95em;
-            margin-top: 8px;
-        }
-        .news-card {
-            background: #fff;
-            border-radius: 12px;
-            padding: 28px;
-            margin-bottom: 24px;
-            border: 1px solid #e8e8e8;
-            transition: box-shadow 0.2s;
-        }
-        .news-card:hover {
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-        }
-        .news-tag {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.75em;
-            font-weight: 600;
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 12px;
+        }
+        .logo {
+            font-size: 1.3em;
+            font-weight: 700;
+        }
+        .date-badge {
+            background: #f0f0f0;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8em;
+            color: #666;
+        }
+        
+        /* Tab Bar */
+        .tabs {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+        .tabs::-webkit-scrollbar {
+            display: none;
+        }
+        .tab {
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: 500;
+            white-space: nowrap;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+            background: #f0f0f0;
+            color: #666;
+        }
+        .tab.active {
+            background: #1a1a1a;
+            color: #fff;
+        }
+        
+        /* Cards Container */
+        .cards {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        
+        /* News Card */
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        }
+        .card-header {
+            padding: 16px 16px 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .card-tag {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.7em;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        .tag-claude { background: #f0f0f0; color: #555; }
-        .tag-gemini { background: #e8f4fd; color: #1a73e8; }
-        .tag-chatgpt { background: #e6f7f0; color: #0d9488; }
-        .tag-breaking { background: #fef2f2; color: #dc2626; }
-        .news-title {
-            font-size: 1.25em;
-            color: #1a1a1a;
-            margin-bottom: 12px;
+        .tag-breaking { background: #fee2e2; color: #dc2626; }
+        .tag-claude { background: #f3f4f6; color: #374151; }
+        .tag-gemini { background: #dbeafe; color: #1d4ed8; }
+        .tag-chatgpt { background: #d1fae5; color: #059669; }
+        
+        .card-source {
+            font-size: 0.75em;
+            color: #999;
+        }
+        .card-title {
+            padding: 0 16px;
+            font-size: 1.1em;
+            font-weight: 600;
             line-height: 1.4;
-            font-weight: 600;
+            margin-bottom: 12px;
         }
-        .news-meta {
-            color: #999;
-            font-size: 0.85em;
-            margin-bottom: 14px;
-        }
-        .news-summary {
-            color: #555;
-            margin-bottom: 20px;
-            font-size: 0.95em;
-        }
-        .insight-box {
-            background: #f8f9fa;
-            border-left: 3px solid #1a1a1a;
-            padding: 16px 20px;
-            margin-bottom: 14px;
-            border-radius: 0 8px 8px 0;
-        }
-        .insight-box h4 {
-            color: #1a1a1a;
-            margin-bottom: 8px;
-            font-size: 0.85em;
-            font-weight: 600;
-        }
-        .insight-box p {
-            color: #555;
+        .card-summary {
+            padding: 0 16px;
             font-size: 0.9em;
+            color: #666;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
-        .impact-box {
+        
+        /* Expandable Content */
+        .card-expand {
+            padding: 12px 16px;
+            border-top: 1px solid #f0f0f0;
+            margin-top: 12px;
+        }
+        .expand-btn {
+            width: 100%;
+            padding: 10px;
             background: #f8f9fa;
-            border-left: 3px solid #999;
-            padding: 16px 20px;
-            border-radius: 0 8px 8px 0;
-        }
-        .impact-box h4 {
+            border: none;
+            border-radius: 8px;
+            font-size: 0.85em;
             color: #666;
-            margin-bottom: 8px;
-            font-size: 0.85em;
-            font-weight: 600;
-        }
-        .impact-box p {
-            color: #555;
-            font-size: 0.9em;
-        }
-        .source-link {
-            display: inline-block;
-            margin-top: 16px;
-            color: #1a73e8;
-            text-decoration: none;
-            font-size: 0.85em;
-            font-weight: 500;
-        }
-        .source-link:hover {
-            text-decoration: underline;
-        }
-        footer {
-            text-align: center;
-            margin-top: 50px;
-            padding-top: 30px;
-            border-top: 1px solid #eee;
-            color: #999;
-            font-size: 0.85em;
-        }
-        footer a {
-            color: #666;
-            text-decoration: none;
-        }
-        footer a:hover {
-            color: #1a73e8;
-        }
-        /* Navbar */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: #fff;
-            border-bottom: 1px solid #eee;
-            z-index: 100;
-            padding: 0 20px;
-        }
-        .nav-container {
-            max-width: 800px;
-            margin: 0 auto;
+            cursor: pointer;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            height: 56px;
+            justify-content: center;
+            gap: 6px;
         }
-        .nav-logo {
-            font-weight: 700;
-            font-size: 1.1em;
+        .expand-btn:hover {
+            background: #f0f0f0;
+        }
+        
+        /* Expanded Details */
+        .card-details {
+            display: none;
+            padding: 16px;
+            background: #fafafa;
+            border-top: 1px solid #f0f0f0;
+        }
+        .card-details.show {
+            display: block;
+        }
+        .detail-section {
+            margin-bottom: 16px;
+        }
+        .detail-section:last-child {
+            margin-bottom: 0;
+        }
+        .detail-title {
+            font-size: 0.8em;
+            font-weight: 600;
             color: #1a1a1a;
-            text-decoration: none;
-        }
-        .nav-links {
+            margin-bottom: 8px;
             display: flex;
-            gap: 24px;
+            align-items: center;
+            gap: 6px;
         }
-        .nav-links a {
+        .detail-content {
+            font-size: 0.85em;
+            color: #555;
+            line-height: 1.6;
+        }
+        .card-link {
+            display: block;
+            padding: 12px 16px;
+            background: #fff;
+            border-top: 1px solid #f0f0f0;
+            color: #1a73e8;
+            text-decoration: none;
+            font-size: 0.85em;
+            font-weight: 500;
+            text-align: center;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 24px 16px 40px;
+            color: #999;
+            font-size: 0.8em;
+        }
+        .footer a {
             color: #666;
             text-decoration: none;
-            font-size: 0.9em;
-            font-weight: 500;
-            transition: color 0.2s;
         }
-        .nav-links a:hover {
-            color: #1a1a1a;
-        }
-        .nav-links a.active {
-            color: #1a1a1a;
-        }
-        .nav-date {
-            color: #999;
-            font-size: 0.85em;
-        }
-        body {
-            padding-top: 56px;
-        }
-        @media (max-width: 600px) {
-            .nav-links {
-                gap: 16px;
-            }
-            .nav-date {
-                display: none;
-            }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#" class="nav-logo">📰 AI 日報</a>
-            <div class="nav-links">
-                <a href="#" class="active">Today</a>
-                <a href="#breaking">Breaking</a>
-                <a href="#claude">Claude</a>
-                <a href="#gemini">Gemini</a>
-            </div>
-            <span class="nav-date">2026-03-13</span>
+    <header class="header">
+        <div class="header-top">
+            <span class="logo">📰 AI 日報</span>
+            <span class="date-badge">2026-03-13</span>
         </div>
-    </nav>
+        <div class="tabs">
+            <button class="tab active" onclick="filterCards('all')">全部</button>
+            <button class="tab" onclick="filterCards('breaking')">🔥 Breaking</button>
+            <button class="tab" onclick="filterCards('claude')">Claude</button>
+            <button class="tab" onclick="filterCards('gemini')">Gemini</button>
+            <button class="tab" onclick="filterCards('chatgpt')">ChatGPT</button>
+        </div>
+    </header>
 
-    <div class="container">
-        <header>
-            <h1>📰 AI 日報</h1>
-            <p class="date">2026 年 3 月 13 日</p>
-            <p class="subtitle">Claude · ChatGPT · Gemini 每日精選</p>
-        </header>
-
-        <article class="news-card" id="breaking">
-            <span class="news-tag tag-breaking">Breaking</span>
-            <h2 class="news-title">微軟、Google、Amazon、Apple、OpenAI 聯合支持 Anthropic 對抗五角大廈</h2>
-            <p class="news-meta">The Guardian · 2026-03-13</p>
-            <p class="news-summary">
-                微軟向法院提交支持 Anthropic 的意見書，支持其推翻五角大廈「供應鏈風險」標籤的訴訟。Google、Amazon、Apple 和 OpenAI 也簽署了這份意見書。微軟表示：「國防部需要可靠地使用國家最好的技術。每個人都希望確保 AI 不會被用於大規模國內監控或在沒有人類控制的情況下發動戰爭。」Anthropic 是第一家被公開標記為「供應鏈風險」的美國公司。
-            </p>
-            <div class="insight-box">
-                <h4>🔍 洞見觀察</h4>
-                <p>這是科技史上罕見的一幕——五大科技巨頭聯合支持一家「競爭對手」。這反映出整個產業對政府過度干預的擔憂。如果 Anthropic 的「供應鏈風險」標籤成立，任何 AI 公司都可能面臨類似命運。</p>
+    <main class="cards">
+        <!-- Card 1 -->
+        <article class="card" data-category="breaking">
+            <div class="card-header">
+                <span class="card-tag tag-breaking">Breaking</span>
+                <span class="card-source">The Guardian</span>
             </div>
-            <div class="impact-box">
-                <h4>🌐 影響範圍</h4>
-                <p><strong>AI 產業：</strong>科技巨頭罕見聯合行動，顯示對政府監管的集體擔憂<br>
-                <strong>國防承包商：</strong>若標籤成立，必須證明產品不使用 Claude<br>
-                <strong>市場：</strong>AI 公司與政府的關係將成為投資評估的重要因素</p>
+            <h2 class="card-title">微軟、Google、Amazon、Apple、OpenAI 聯合支持 Anthropic 對抗五角大廈</h2>
+            <p class="card-summary">微軟向法院提交支持 Anthropic 的意見書，Google、Amazon、Apple 和 OpenAI 也簽署。Anthropic 是第一家被標記為「供應鏈風險」的美國公司。</p>
+            <div class="card-expand">
+                <button class="expand-btn" onclick="toggleDetails(this)">
+                    <span>查看洞見分析</span>
+                    <span>↓</span>
+                </button>
             </div>
-            <a href="https://www.theguardian.com/technology/2026/mar/12/microsoft-amicus-brief-anthropic-pentagon" target="_blank" class="source-link">閱讀原文 →</a>
+            <div class="card-details">
+                <div class="detail-section">
+                    <div class="detail-title">🔍 洞見觀察</div>
+                    <p class="detail-content">五大科技巨頭聯合支持「競爭對手」，反映整個產業對政府過度干預的擔憂。這是「矽谷 vs 華盛頓」的權力博弈。</p>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">🌐 影響範圍</div>
+                    <p class="detail-content">• AI 產業：科技巨頭罕見聯合行動<br>• 國防承包商：需證明不使用 Claude<br>• 市場：AI 公司與政府關係成投資考量</p>
+                </div>
+            </div>
+            <a href="https://www.theguardian.com/technology/2026/mar/12/microsoft-amicus-brief-anthropic-pentagon" target="_blank" class="card-link">閱讀原文 →</a>
         </article>
 
-        <article class="news-card" id="claude">
-            <span class="news-tag tag-claude">Claude</span>
-            <h2 class="news-title">Anthropic 投資 1 億美元成立 Claude Partner Network</h2>
-            <p class="news-meta">Anthropic · 2026-03-13</p>
-            <p class="news-summary">
-                Anthropic 宣布成立 Claude Partner Network，投資 1 億美元支持合作夥伴協助企業採用 Claude。Claude 是唯一在三大雲端平台（AWS、Google Cloud、Microsoft）都可用的前沿 AI 模型。合作夥伴將獲得培訓課程、專屬技術支援、聯合市場開發，以及新的技術認證計畫。
-            </p>
-            <div class="insight-box">
-                <h4>🔍 洞見觀察</h4>
-                <p>在與五角大廈對峙的同時，Anthropic 加碼投資企業市場——這是一個明確的信號：即使失去政府合約，Anthropic 也有信心在商業市場取得成功。「唯一在三大雲端平台都可用」的定位，讓 Claude 成為企業最安全的選擇。</p>
+        <!-- Card 2 -->
+        <article class="card" data-category="claude">
+            <div class="card-header">
+                <span class="card-tag tag-claude">Claude</span>
+                <span class="card-source">Anthropic</span>
             </div>
-            <div class="impact-box">
-                <h4>🌐 影響範圍</h4>
-                <p><strong>企業：</strong>更多專業服務商可協助企業部署 Claude<br>
-                <strong>合作夥伴：</strong>顧問公司和 AI 服務商可獲得培訓和資金支持<br>
-                <strong>市場：</strong>Claude 在企業市場的競爭力進一步增強</p>
+            <h2 class="card-title">Anthropic 投資 1 億美元成立 Claude Partner Network</h2>
+            <p class="card-summary">Claude 是唯一在三大雲端平台（AWS、Google Cloud、Microsoft）都可用的前沿 AI 模型。合作夥伴將獲得培訓、技術支援和資金。</p>
+            <div class="card-expand">
+                <button class="expand-btn" onclick="toggleDetails(this)">
+                    <span>查看洞見分析</span>
+                    <span>↓</span>
+                </button>
             </div>
-            <a href="https://www.anthropic.com/news/claude-partner-network" target="_blank" class="source-link">閱讀原文 →</a>
+            <div class="card-details">
+                <div class="detail-section">
+                    <div class="detail-title">🔍 洞見觀察</div>
+                    <p class="detail-content">在與五角大廈對峙同時加碼企業市場，Anthropic 有信心在商業市場取得成功。「三大雲端都可用」讓 Claude 成為企業最安全的選擇。</p>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">🌐 影響範圍</div>
+                    <p class="detail-content">• 企業：更多專業服務商協助部署<br>• 合作夥伴：獲得培訓和資金支持<br>• 市場：Claude 企業競爭力增強</p>
+                </div>
+            </div>
+            <a href="https://www.anthropic.com/news/claude-partner-network" target="_blank" class="card-link">閱讀原文 →</a>
         </article>
 
-        <article class="news-card">
-            <span class="news-tag tag-claude">Claude</span>
-            <h2 class="news-title">Claude 新功能：對話中即時生成圖表、圖解等視覺化內容</h2>
-            <p class="news-meta">The Verge · 2026-03-13</p>
-            <p class="news-summary">
-                Anthropic 推出 Claude 新功能，允許 AI 在對話中生成自訂圖表、圖解和其他視覺化內容。Claude 會根據對話情境判斷是否需要視覺輔助，並將圖像直接嵌入對話中。例如，討論元素週期表時，Claude 會生成互動式週期表讓用戶點擊查看更多資訊。此功能現已向所有用戶開放。
-            </p>
-            <div class="insight-box">
-                <h4>🔍 洞見觀察</h4>
-                <p>這是 Claude 從「文字 AI」邁向「多模態 AI」的重要一步。與先前的 artifacts 功能不同，這些視覺化內容直接嵌入對話流程，更自然地輔助溝通。OpenAI 和 Google 本週也推出了類似功能——AI 視覺化能力正成為新的競爭焦點。</p>
+        <!-- Card 3 -->
+        <article class="card" data-category="claude">
+            <div class="card-header">
+                <span class="card-tag tag-claude">Claude</span>
+                <span class="card-source">The Verge</span>
             </div>
-            <div class="impact-box">
-                <h4>🌐 影響範圍</h4>
-                <p><strong>教育：</strong>複雜概念可透過即時生成的圖解更容易理解<br>
-                <strong>商業：</strong>數據分析和簡報製作效率提升<br>
-                <strong>開發者：</strong>系統架構圖、流程圖可即時生成</p>
+            <h2 class="card-title">Claude 新功能：對話中即時生成圖表、圖解等視覺化內容</h2>
+            <p class="card-summary">Claude 會根據對話情境判斷是否需要視覺輔助，並將圖像直接嵌入對話中。此功能現已向所有用戶開放。</p>
+            <div class="card-expand">
+                <button class="expand-btn" onclick="toggleDetails(this)">
+                    <span>查看洞見分析</span>
+                    <span>↓</span>
+                </button>
             </div>
-            <a href="https://www.theverge.com/ai-artificial-intelligence/893625/anthropic-claude-ai-charts-diagrams" target="_blank" class="source-link">閱讀原文 →</a>
+            <div class="card-details">
+                <div class="detail-section">
+                    <div class="detail-title">🔍 洞見觀察</div>
+                    <p class="detail-content">Claude 從「文字 AI」邁向「多模態 AI」的重要一步。OpenAI 和 Google 本週也推出類似功能——AI 視覺化能力成為新競爭焦點。</p>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">🌐 影響範圍</div>
+                    <p class="detail-content">• 教育：複雜概念更容易理解<br>• 商業：數據分析效率提升<br>• 開發者：架構圖可即時生成</p>
+                </div>
+            </div>
+            <a href="https://www.theverge.com/ai-artificial-intelligence/893625/anthropic-claude-ai-charts-diagrams" target="_blank" class="card-link">閱讀原文 →</a>
         </article>
 
-        <article class="news-card" id="gemini">
-            <span class="news-tag tag-gemini">Gemini</span>
-            <h2 class="news-title">Google Maps 大改版：Gemini 驅動的「Ask Maps」讓你用對話探索世界</h2>
-            <p class="news-meta">Google Blog · 2026-03-12</p>
-            <p class="news-summary">
-                Google 宣布 Maps 十年來最大升級。新功能「Ask Maps」讓用戶用自然語言提問，例如「我的手機快沒電了，哪裡可以充電又不用排隊買咖啡？」Gemini 會根據 Maps 的即時資訊生成個人化回答並配上地圖。另外，「Immersive Navigation」導航功能也大幅升級，提供 3D 視覺、語音指引和停車輔助。
-            </p>
-            <div class="insight-box">
-                <h4>🔍 洞見觀察</h4>
-                <p>這標誌著「地圖」定義的根本轉變——從靜態資訊查詢工具變成動態對話式助理。「Ask Maps」解決的不是「A 到 B 怎麼走」，而是「我有一個複雜需求，幫我找到解決方案」。這是 Gemini 在 Google 生態系中最有說服力的應用案例之一。</p>
+        <!-- Card 4 -->
+        <article class="card" data-category="gemini">
+            <div class="card-header">
+                <span class="card-tag tag-gemini">Gemini</span>
+                <span class="card-source">Google Blog</span>
             </div>
-            <div class="impact-box">
-                <h4>🌐 影響範圍</h4>
-                <p><strong>用戶：</strong>複雜的搜尋需求可用一句話解決<br>
-                <strong>商家：</strong>SEO 策略需要適應對話式搜尋，評論內容變得更重要<br>
-                <strong>競爭者：</strong>Apple Maps 和其他導航 app 面臨壓力</p>
+            <h2 class="card-title">Google Maps 大改版：Gemini 驅動的「Ask Maps」讓你用對話探索世界</h2>
+            <p class="card-summary">十年來最大升級。用自然語言提問如「哪裡可以充電又不用排隊？」，Gemini 會生成個人化回答並配上地圖。</p>
+            <div class="card-expand">
+                <button class="expand-btn" onclick="toggleDetails(this)">
+                    <span>查看洞見分析</span>
+                    <span>↓</span>
+                </button>
             </div>
-            <a href="https://blog.google/products-and-platforms/products/maps/ask-maps-immersive-navigation/" target="_blank" class="source-link">閱讀原文 →</a>
+            <div class="card-details">
+                <div class="detail-section">
+                    <div class="detail-title">🔍 洞見觀察</div>
+                    <p class="detail-content">「地圖」定義的根本轉變——從靜態查詢變成動態對話式助理。這是 Gemini 在 Google 生態系最有說服力的應用案例之一。</p>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">🌐 影響範圍</div>
+                    <p class="detail-content">• 用戶：複雜需求一句話解決<br>• 商家：SEO 需適應對話式搜尋<br>• 競爭者：Apple Maps 面臨壓力</p>
+                </div>
+            </div>
+            <a href="https://blog.google/products-and-platforms/products/maps/ask-maps-immersive-navigation/" target="_blank" class="card-link">閱讀原文 →</a>
         </article>
 
-        <article class="news-card">
-            <span class="news-tag tag-breaking">Breaking</span>
-            <h2 class="news-title">五角大廈技術長：Claude 會「污染」國防供應鏈</h2>
-            <p class="news-meta">CNBC · 2026-03-12</p>
-            <p class="news-summary">
-                五角大廈技術長 Emil Michael 接受 CNBC 訪問時表示，Anthropic 的 Claude AI 模型會「污染」國防供應鏈，因為它「內建了不同的政策偏好」。他說：「我們不能讓一家公司把不同的政策偏好透過模型的 constitution、靈魂、政策設定烘焙進去，導致我們的戰士得到無效的武器。」這是五角大廈首次明確解釋為何將 Anthropic 標記為「供應鏈風險」。
-            </p>
-            <div class="insight-box">
-                <h4>🔍 洞見觀察</h4>
-                <p>這番話揭示了衝突的核心：Anthropic 的「Constitutional AI」設計理念——讓 AI 遵循特定倫理原則——被五角大廈視為「污染」。這是一個深刻的哲學分歧：AI 應該是「中立工具」任人使用，還是應該內建倫理限制？</p>
+        <!-- Card 5 -->
+        <article class="card" data-category="breaking">
+            <div class="card-header">
+                <span class="card-tag tag-breaking">Breaking</span>
+                <span class="card-source">CNBC</span>
             </div>
-            <div class="impact-box">
-                <h4>🌐 影響範圍</h4>
-                <p><strong>AI 產業：</strong>「負責任 AI」可能成為政府合約的障礙<br>
-                <strong>Anthropic：</strong>核心價值觀與政府需求的根本衝突浮上檯面<br>
-                <strong>社會：</strong>引發 AI 倫理設計的公共辯論</p>
+            <h2 class="card-title">五角大廈技術長：Claude 會「污染」國防供應鏈</h2>
+            <p class="card-summary">Emil Michael 表示 Claude「內建了不同的政策偏好」，會導致「戰士得到無效的武器」。這是五角大廈首次明確解釋標記原因。</p>
+            <div class="card-expand">
+                <button class="expand-btn" onclick="toggleDetails(this)">
+                    <span>查看洞見分析</span>
+                    <span>↓</span>
+                </button>
             </div>
-            <a href="https://www.cnbc.com/2026/03/12/anthropic-claude-emil-michael-defense.html" target="_blank" class="source-link">閱讀原文 →</a>
+            <div class="card-details">
+                <div class="detail-section">
+                    <div class="detail-title">🔍 洞見觀察</div>
+                    <p class="detail-content">Anthropic 的「Constitutional AI」——讓 AI 遵循倫理原則——被視為「污染」。深刻的哲學分歧：AI 應該是中立工具還是內建倫理限制？</p>
+                </div>
+                <div class="detail-section">
+                    <div class="detail-title">🌐 影響範圍</div>
+                    <p class="detail-content">• AI 產業：「負責任 AI」可能成政府合約障礙<br>• Anthropic：核心價值觀與政府需求衝突<br>• 社會：引發 AI 倫理公共辯論</p>
+                </div>
+            </div>
+            <a href="https://www.cnbc.com/2026/03/12/anthropic-claude-emil-michael-defense.html" target="_blank" class="card-link">閱讀原文 →</a>
         </article>
+    </main>
 
-        <footer>
-            <p>由 <a href="https://github.com/clawdbot/clawdbot" target="_blank">Clawdbot</a> 自動整理</p>
-            <p style="margin-top: 8px;">Sources: The Guardian, Anthropic, The Verge, Google Blog, CNBC</p>
-        </footer>
-    </div>
+    <footer class="footer">
+        <p>由 <a href="https://github.com/clawdbot/clawdbot">Clawdbot</a> 自動整理</p>
+    </footer>
+
+    <script>
+        function toggleDetails(btn) {
+            const card = btn.closest('.card');
+            const details = card.querySelector('.card-details');
+            details.classList.toggle('show');
+            btn.querySelector('span:last-child').textContent = details.classList.contains('show') ? '↑' : '↓';
+            btn.querySelector('span:first-child').textContent = details.classList.contains('show') ? '收起' : '查看洞見分析';
+        }
+
+        function filterCards(category) {
+            const cards = document.querySelectorAll('.card');
+            const tabs = document.querySelectorAll('.tab');
+            
+            tabs.forEach(tab => tab.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            cards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
 </body>
 </html>
