@@ -145,9 +145,79 @@
         footer a:hover {
             color: #1a73e8;
         }
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border-bottom: 1px solid #eee;
+            z-index: 100;
+            padding: 0 20px;
+        }
+        .nav-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 56px;
+        }
+        .nav-logo {
+            font-weight: 700;
+            font-size: 1.1em;
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+        .nav-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #1a1a1a;
+        }
+        .nav-links a.active {
+            color: #1a1a1a;
+        }
+        .nav-date {
+            color: #999;
+            font-size: 0.85em;
+        }
+        body {
+            padding-top: 56px;
+        }
+        @media (max-width: 600px) {
+            .nav-links {
+                gap: 16px;
+            }
+            .nav-date {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">📰 AI 日報</a>
+            <div class="nav-links">
+                <a href="#" class="active">Today</a>
+                <a href="#breaking">Breaking</a>
+                <a href="#claude">Claude</a>
+                <a href="#gemini">Gemini</a>
+            </div>
+            <span class="nav-date">2026-03-13</span>
+        </div>
+    </nav>
+
     <div class="container">
         <header>
             <h1>📰 AI 日報</h1>
@@ -155,7 +225,7 @@
             <p class="subtitle">Claude · ChatGPT · Gemini 每日精選</p>
         </header>
 
-        <article class="news-card">
+        <article class="news-card" id="breaking">
             <span class="news-tag tag-breaking">Breaking</span>
             <h2 class="news-title">微軟、Google、Amazon、Apple、OpenAI 聯合支持 Anthropic 對抗五角大廈</h2>
             <p class="news-meta">The Guardian · 2026-03-13</p>
@@ -175,7 +245,7 @@
             <a href="https://www.theguardian.com/technology/2026/mar/12/microsoft-amicus-brief-anthropic-pentagon" target="_blank" class="source-link">閱讀原文 →</a>
         </article>
 
-        <article class="news-card">
+        <article class="news-card" id="claude">
             <span class="news-tag tag-claude">Claude</span>
             <h2 class="news-title">Anthropic 投資 1 億美元成立 Claude Partner Network</h2>
             <p class="news-meta">Anthropic · 2026-03-13</p>
@@ -215,7 +285,7 @@
             <a href="https://www.theverge.com/ai-artificial-intelligence/893625/anthropic-claude-ai-charts-diagrams" target="_blank" class="source-link">閱讀原文 →</a>
         </article>
 
-        <article class="news-card">
+        <article class="news-card" id="gemini">
             <span class="news-tag tag-gemini">Gemini</span>
             <h2 class="news-title">Google Maps 大改版：Gemini 驅動的「Ask Maps」讓你用對話探索世界</h2>
             <p class="news-meta">Google Blog · 2026-03-12</p>
