@@ -163,24 +163,30 @@
             display: block;
         }
         .detail-section {
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
         .detail-section:last-child {
             margin-bottom: 0;
         }
         .detail-title {
-            font-size: 0.8em;
+            font-size: 0.85em;
             font-weight: 600;
             color: #1a1a1a;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 6px;
         }
         .detail-content {
-            font-size: 0.85em;
-            color: #555;
-            line-height: 1.6;
+            font-size: 0.9em;
+            color: #444;
+            line-height: 1.8;
+        }
+        .detail-content p {
+            margin-bottom: 12px;
+        }
+        .detail-content p:last-child {
+            margin-bottom: 0;
         }
         .card-link {
             display: block;
@@ -192,6 +198,25 @@
             font-size: 0.85em;
             font-weight: 500;
             text-align: center;
+        }
+        
+        /* Insight Box */
+        .insight-box {
+            background: #fff;
+            border-left: 3px solid #1a1a1a;
+            padding: 12px 16px;
+            margin-top: 16px;
+            border-radius: 0 8px 8px 0;
+        }
+        .insight-box h4 {
+            font-size: 0.8em;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+        .insight-box p {
+            font-size: 0.85em;
+            color: #555;
+            line-height: 1.7;
         }
         
         /* Footer */
@@ -223,149 +248,232 @@
             <button class="tab" onclick="filterCards('breaking')">🔥 Breaking</button>
             <button class="tab" onclick="filterCards('claude')">Claude</button>
             <button class="tab" onclick="filterCards('gemini')">Gemini</button>
-            <button class="tab" onclick="filterCards('chatgpt')">ChatGPT</button>
         </div>
     </header>
 
     <main class="cards">
-        <!-- Card 1 -->
+        <!-- Card 1: Microsoft backs Anthropic -->
         <article class="card" data-category="breaking">
             <div class="card-header">
                 <span class="card-tag tag-breaking">Breaking</span>
-                <span class="card-source">The Guardian</span>
+                <span class="card-source">The Guardian · 2026-03-13</span>
             </div>
             <h2 class="card-title">微軟、Google、Amazon、Apple、OpenAI 聯合支持 Anthropic 對抗五角大廈</h2>
-            <p class="card-summary">微軟向法院提交支持 Anthropic 的意見書，Google、Amazon、Apple 和 OpenAI 也簽署。Anthropic 是第一家被標記為「供應鏈風險」的美國公司。</p>
+            <p class="card-summary">微軟向法院提交支持 Anthropic 的法庭之友意見書，Google、Amazon、Apple 和 OpenAI 也簽署。Anthropic 是第一家被標記為「供應鏈風險」的美國公司。</p>
             <div class="card-expand">
                 <button class="expand-btn" onclick="toggleDetails(this)">
-                    <span>查看洞見分析</span>
+                    <span>閱讀完整內容</span>
                     <span>↓</span>
                 </button>
             </div>
             <div class="card-details">
                 <div class="detail-section">
-                    <div class="detail-title">🔍 洞見觀察</div>
-                    <p class="detail-content">五大科技巨頭聯合支持「競爭對手」，反映整個產業對政府過度干預的擔憂。這是「矽谷 vs 華盛頓」的權力博弈。</p>
+                    <div class="detail-title">📄 完整報導</div>
+                    <div class="detail-content">
+                        <p>微軟已加入支持 Anthropic 對五角大廈的法律挑戰，向法院提交了一份法庭之友意見書，支持這家 AI 公司推翻一項實際上禁止其參與政府工作的激進認定。</p>
+                        
+                        <p>在本週提交給舊金山聯邦法院的意見書中，微軟（其將 Anthropic 的 AI 工具整合到提供給美軍的系統中）主張，臨時限制令對於防止對依賴該 AI 公司技術的供應商造成嚴重干擾是必要的。Google、Amazon、Apple 和 OpenAI 也簽署了支持 Anthropic 的意見書。</p>
+                        
+                        <p>微軟在聲明中表示：「國防部需要可靠地取得國家最好的技術。每個人都希望確保 AI 不會被用於大規模國內監控或在沒有人類控制的情況下發動戰爭。政府、整個科技業和美國公眾都需要一條能夠同時實現這些目標的路徑。」</p>
+                        
+                        <p>微軟是五角大廈最深度合作的科技夥伴之一，持有軍方拜登時代 90 億美元「聯合作戰雲端能力」合約的份額（與 Amazon、Google 和 Oracle 共享），以及另外價值數十億美元的軟體和企業服務協議。</p>
+                        
+                        <p>這份文件是在 Anthropic 週一提起兩項訴訟後提交的——一項在加州聯邦法院，一項在華盛頓特區巡迴上訴法院——挑戰五角大廈將其標記為供應鏈風險的決定，這一認定此前從未適用於美國公司。</p>
+                        
+                        <p>這場爭端源於上個月一項 2 億美元合約談判的破裂，該合約原本計劃在美國準備對伊朗開戰時，將 Anthropic 的 AI 部署在機密軍事系統上。在 Anthropic 堅持其技術不應用於對美國公民的大規模監控或驅動自主致命武器後，談判破裂，導致國防部長 Pete Hegseth 將該公司認定為供應鏈風險。</p>
+                        
+                        <p>在訴狀中，Anthropic 解釋了其技術的限制和顧慮：「例如，Anthropic 目前對 Claude 如果用於支持致命自主作戰是否能可靠或安全地運作沒有信心。因此，這些使用限制根植於 Anthropic 對 Claude 風險和限制的獨特理解。」</p>
+                        
+                        <p>該公司還表示其第一修正案權利受到攻擊，主張五角大廈利用供應鏈風險認定——通常保留給與中國等外國對手有關聯的公司——作為對其 AI 安全公開立場的意識形態懲罰。</p>
+                    </div>
                 </div>
-                <div class="detail-section">
-                    <div class="detail-title">🌐 影響範圍</div>
-                    <p class="detail-content">• AI 產業：科技巨頭罕見聯合行動<br>• 國防承包商：需證明不使用 Claude<br>• 市場：AI 公司與政府關係成投資考量</p>
+                <div class="insight-box">
+                    <h4>🔍 洞見分析</h4>
+                    <p>這是科技史上罕見的一幕——五大科技巨頭聯合支持一家「競爭對手」。這反映出整個產業對政府過度干預的擔憂。如果 Anthropic 的「供應鏈風險」標籤成立，任何 AI 公司都可能面臨類似命運。這不只是 Anthropic vs 五角大廈，而是「矽谷 vs 華盛頓」的權力博弈。值得注意的是，即便是 OpenAI（已與五角大廈達成合作）也選擇支持競爭對手 Anthropic，顯示產業對政府任意認定的集體擔憂超越了商業競爭。</p>
                 </div>
             </div>
-            <a href="https://www.theguardian.com/technology/2026/mar/12/microsoft-amicus-brief-anthropic-pentagon" target="_blank" class="card-link">閱讀原文 →</a>
+            <a href="https://www.theguardian.com/technology/2026/mar/12/microsoft-amicus-brief-anthropic-pentagon" target="_blank" class="card-link">閱讀英文原文 →</a>
         </article>
 
-        <!-- Card 2 -->
+        <!-- Card 2: Claude Partner Network -->
         <article class="card" data-category="claude">
             <div class="card-header">
                 <span class="card-tag tag-claude">Claude</span>
-                <span class="card-source">Anthropic</span>
+                <span class="card-source">Anthropic · 2026-03-13</span>
             </div>
             <h2 class="card-title">Anthropic 投資 1 億美元成立 Claude Partner Network</h2>
             <p class="card-summary">Claude 是唯一在三大雲端平台（AWS、Google Cloud、Microsoft）都可用的前沿 AI 模型。合作夥伴將獲得培訓、技術支援和資金。</p>
             <div class="card-expand">
                 <button class="expand-btn" onclick="toggleDetails(this)">
-                    <span>查看洞見分析</span>
+                    <span>閱讀完整內容</span>
                     <span>↓</span>
                 </button>
             </div>
             <div class="card-details">
                 <div class="detail-section">
-                    <div class="detail-title">🔍 洞見觀察</div>
-                    <p class="detail-content">在與五角大廈對峙同時加碼企業市場，Anthropic 有信心在商業市場取得成功。「三大雲端都可用」讓 Claude 成為企業最安全的選擇。</p>
+                    <div class="detail-title">📄 完整報導</div>
+                    <div class="detail-content">
+                        <p>我們正在推出 Claude Partner Network，這是一個專為協助企業採用 Claude 的合作夥伴組織設立的計畫。我們承諾投入初始 1 億美元，透過培訓課程、專屬技術支援和聯合市場開發來支持我們的合作夥伴。今天起加入的合作夥伴將立即獲得新技術認證的存取權，並有資格獲得投資。</p>
+                        
+                        <p>Anthropic 專注於確保我們的 AI 模型 Claude 能滿足企業需求。為此，我們已與多家公司建立合作關係。值得注意的是，Claude 是唯一在三大領先雲端供應商都可用的前沿 AI 模型：AWS、Google Cloud 和 Microsoft。</p>
+                        
+                        <p>我們也與大型管理顧問公司、專業服務公司、專業 AI 公司和類似機構合作。這些組織幫助我們的企業客戶識別 Claude 能為其工作提供最大價值的地方，然後幫助他們開始使用我們的 AI 工具。我們的合作夥伴在這片看似未知的領域中扮演可信賴的嚮導角色：協助導航大型組織內部所需的部署要求、合規性和變革管理。</p>
+                        
+                        <p>Anthropic 全球業務發展與合作夥伴關係負責人 Steve Corfield 表示：「Anthropic 是世界上對合作夥伴生態系統最投入的 AI 公司——我們今年投入 1 億美元來證明這一點。認證、共同投資、專屬團隊——這些基礎設施的建立是為了讓任何規模的公司都能建立 Claude 實踐。我們的合作夥伴在幫助企業從概念驗證到 Claude 生產部署方面發揮著關鍵作用，我們確保他們擁有所需的一切。」</p>
+                        
+                        <p>我們 1 億美元投資的很大一部分將直接用於合作夥伴，作為培訓和銷售賦能的直接支援，以及市場開發（包括使客戶部署成功的工作）和聯合活動的共同行銷。我們還將合作夥伴團隊擴大五倍，以便為正在處理實際客戶交易的合作夥伴提供專屬的應用 AI 工程師，為範圍更複雜的實施提供技術架構師，並在國際市場提供本地化的市場推廣支援。</p>
+                        
+                        <p>加入網絡的成員將可以存取我們的合作夥伴入口網站，我們將在那裡分享 Anthropic Academy 培訓材料、我們自己的市場推廣團隊使用的銷售手冊，以及其他共同行銷文件。合格的合作夥伴還將被添加到我們的服務合作夥伴目錄中，企業買家可以在那裡找到具有 Claude 實施經驗的公司。</p>
+                        
+                        <p>與網絡一起，我們推出了第一個 Claude 技術認證：Claude Certified Architect, Foundations，今天起向合作夥伴開放。這是針對使用 Claude 構建生產應用程式的解決方案架構師的技術考試。今年稍後，我們將為銷售人員、架構師和開發人員推出更多認證。</p>
+                    </div>
                 </div>
-                <div class="detail-section">
-                    <div class="detail-title">🌐 影響範圍</div>
-                    <p class="detail-content">• 企業：更多專業服務商協助部署<br>• 合作夥伴：獲得培訓和資金支持<br>• 市場：Claude 企業競爭力增強</p>
+                <div class="insight-box">
+                    <h4>🔍 洞見分析</h4>
+                    <p>在與五角大廈對峙的同時加碼投資企業市場，Anthropic 發出了明確信號：即使失去政府合約，他們也有信心在商業市場取得成功。「唯一在三大雲端都可用」的定位讓 Claude 成為企業最安全的選擇，不會被鎖定在單一供應商。1 億美元的投資規模和五倍的團隊擴張顯示 Anthropic 正在認真建立企業銷售渠道，這與其技術領先但商業化相對較慢的過去形成對比。</p>
                 </div>
             </div>
-            <a href="https://www.anthropic.com/news/claude-partner-network" target="_blank" class="card-link">閱讀原文 →</a>
+            <a href="https://www.anthropic.com/news/claude-partner-network" target="_blank" class="card-link">閱讀英文原文 →</a>
         </article>
 
-        <!-- Card 3 -->
+        <!-- Card 3: Claude Charts -->
         <article class="card" data-category="claude">
             <div class="card-header">
                 <span class="card-tag tag-claude">Claude</span>
-                <span class="card-source">The Verge</span>
+                <span class="card-source">The Verge · 2026-03-13</span>
             </div>
             <h2 class="card-title">Claude 新功能：對話中即時生成圖表、圖解等視覺化內容</h2>
             <p class="card-summary">Claude 會根據對話情境判斷是否需要視覺輔助，並將圖像直接嵌入對話中。此功能現已向所有用戶開放。</p>
             <div class="card-expand">
                 <button class="expand-btn" onclick="toggleDetails(this)">
-                    <span>查看洞見分析</span>
+                    <span>閱讀完整內容</span>
                     <span>↓</span>
                 </button>
             </div>
             <div class="card-details">
                 <div class="detail-section">
-                    <div class="detail-title">🔍 洞見觀察</div>
-                    <p class="detail-content">Claude 從「文字 AI」邁向「多模態 AI」的重要一步。OpenAI 和 Google 本週也推出類似功能——AI 視覺化能力成為新競爭焦點。</p>
+                    <div class="detail-title">📄 完整報導</div>
+                    <div class="detail-content">
+                        <p>Anthropic 對 Claude 的最新更新將允許這個 AI 聊天機器人在對話過程中生成自訂圖表、圖解和其他視覺化內容。如果 Claude 根據對話內容判斷視覺化會有幫助，它會將圖像直接嵌入對話中，而不是放在側邊面板。</p>
+                        
+                        <p>舉例來說，Anthropic 表示，關於元素週期表的對話可能會導致 Claude 生成一個視覺化的週期表，具有互動元素，讓你可以點擊表格內部獲取更多資訊。另一個例子展示了 Claude 如何生成與「重量如何在建築物中傳遞」問題相關的視覺化。</p>
+                        
+                        <p>雖然 Claude 會自動判斷是否應該在對話中生成視覺化，但 Anthropic 指出，你也可以直接要求聊天機器人生成圖表、表格或圖解。本週早些時候，OpenAI 在 ChatGPT 中推出了一項新功能，可以生成數學和科學概念的互動視覺化，而 Google Gemini 也可以創建你可以互動的教育圖像。</p>
+                        
+                        <p>Anthropic 已經允許你通過 Claude 的「artifacts」功能創建圖表、文件、工具和應用程式，這些會在側邊面板中打開，你可以在其中互動、分享和下載 AI 生成的創作。但正如 Anthropic 所指出的，artifacts 是持久的，而在 Claude 對話中創建的視覺化會隨著對話進行而改變或消失。你也可以要求 Claude 對它創建的視覺化進行修改。</p>
+                        
+                        <p>Claude 的新視覺化功能現在正向所有用戶推出，並將預設開啟。</p>
+                    </div>
                 </div>
-                <div class="detail-section">
-                    <div class="detail-title">🌐 影響範圍</div>
-                    <p class="detail-content">• 教育：複雜概念更容易理解<br>• 商業：數據分析效率提升<br>• 開發者：架構圖可即時生成</p>
+                <div class="insight-box">
+                    <h4>🔍 洞見分析</h4>
+                    <p>這是 Claude 從「文字 AI」邁向「多模態 AI」的重要一步。與先前的 artifacts 功能不同，這些視覺化內容直接嵌入對話流程，更自然地輔助溝通。值得注意的是，OpenAI 和 Google 本週也推出了類似功能——AI 聊天機器人的視覺化能力正成為新的競爭焦點。這種「對話中即時生成」的模式比「側邊欄生成」更符合人類的自然溝通習慣。</p>
                 </div>
             </div>
-            <a href="https://www.theverge.com/ai-artificial-intelligence/893625/anthropic-claude-ai-charts-diagrams" target="_blank" class="card-link">閱讀原文 →</a>
+            <a href="https://www.theverge.com/ai-artificial-intelligence/893625/anthropic-claude-ai-charts-diagrams" target="_blank" class="card-link">閱讀英文原文 →</a>
         </article>
 
-        <!-- Card 4 -->
+        <!-- Card 4: Google Maps Ask Maps -->
         <article class="card" data-category="gemini">
             <div class="card-header">
                 <span class="card-tag tag-gemini">Gemini</span>
-                <span class="card-source">Google Blog</span>
+                <span class="card-source">Google Blog · 2026-03-12</span>
             </div>
             <h2 class="card-title">Google Maps 大改版：Gemini 驅動的「Ask Maps」讓你用對話探索世界</h2>
             <p class="card-summary">十年來最大升級。用自然語言提問如「哪裡可以充電又不用排隊？」，Gemini 會生成個人化回答並配上地圖。</p>
             <div class="card-expand">
                 <button class="expand-btn" onclick="toggleDetails(this)">
-                    <span>查看洞見分析</span>
+                    <span>閱讀完整內容</span>
                     <span>↓</span>
                 </button>
             </div>
             <div class="card-details">
                 <div class="detail-section">
-                    <div class="detail-title">🔍 洞見觀察</div>
-                    <p class="detail-content">「地圖」定義的根本轉變——從靜態查詢變成動態對話式助理。這是 Gemini 在 Google 生態系最有說服力的應用案例之一。</p>
+                    <div class="detail-title">📄 完整報導</div>
+                    <div class="detail-content">
+                        <p>今天，Google Maps 正在從根本上改變地圖的功能。透過將世界上最新鮮的地圖與我們最強大的 Gemini 模型結合，我們正在將探索轉變為簡單的對話，並通過十多年來最大的導航升級使駕駛比以往更直觀。</p>
+                        
+                        <p><strong>隨時詢問任何地方的問題</strong></p>
+                        
+                        <p>我們推出了 Ask Maps，這是一種新的對話體驗，可以回答地圖以前從未能回答的複雜、真實世界問題。現在你可以問像是「我的手機快沒電了——哪裡可以充電又不用排隊買咖啡？」或「今晚有燈光的公共網球場在哪裡可以打球？」這樣的問題。以前，找到這些資訊意味著大量研究和篩選評論。但現在，你只需點擊「Ask Maps」按鈕，就能以對話方式獲得答案，並配有客製化地圖幫助你視覺化選項。</p>
+                        
+                        <p>Ask Maps 獨特地實用——利用 Maps 對世界的最新資訊，在你出發前向你展示所需了解的一切，為你個人化回應，並使將計劃轉化為行動變得容易。</p>
+                        
+                        <p>所以如果你正在計劃旅行，只需問：「我要去大峽谷、馬蹄灣和珊瑚沙丘——沿途有什麼推薦的停靠點嗎？」你會得到清晰的方向、預計到達時間，以及真人的內行建議，比如如何找到隱藏的健行步道或獲得免費入場券。為了建立你的行程，Maps 分析來自超過 3 億個地點的資訊，包括來自我們超過 5 億貢獻者社群的評論。</p>
+                        
+                        <p>你的結果會根據你在 Maps 中搜尋或儲存的地點等資訊進行個人化，以幫助你獲得最相關的推薦。所以當你問：「我的朋友們要從中城東區來下班後與我見面。有沒有舒適氛圍、今晚 7 點有 4 人桌的地方？」Ask Maps 已經知道你喜歡素食餐廳，並找到提供素食選項的方便中間點。</p>
+                        
+                        <p>一旦你有了想法，Ask Maps 使將計劃轉化為行動變得容易。你可以預訂餐廳、將地點儲存到清單或與朋友分享。只需幾次點擊即可獲取路線並導航到目的地。</p>
+                        
+                        <p>Ask Maps 現在開始在美國和印度的 Android 和 iOS 上推出，桌面版即將推出。</p>
+                        
+                        <p><strong>消除駕駛中的猜測</strong></p>
+                        
+                        <p>除了給你探索的新方式，我們還在重新構想如何幫助你到達目的地。我們通過 Immersive Navigation 對 Maps 的駕駛體驗進行了十多年來最大的更新——這是導航體驗的完全轉變，具有重新設計的視覺效果和更直觀的指引。</p>
+                        
+                        <p>現在，你的地圖以生動的 3D 視圖呈現，反映你周圍的建築、立交橋和地形。在有幫助時，Maps 會突出顯示關鍵道路細節，如車道、人行橫道、交通燈和停車標誌，幫助你自信地轉彎或匯入。我們還更新了語音指引使其更自然，就像一個朋友在為你導航。</p>
+                    </div>
                 </div>
-                <div class="detail-section">
-                    <div class="detail-title">🌐 影響範圍</div>
-                    <p class="detail-content">• 用戶：複雜需求一句話解決<br>• 商家：SEO 需適應對話式搜尋<br>• 競爭者：Apple Maps 面臨壓力</p>
+                <div class="insight-box">
+                    <h4>🔍 洞見分析</h4>
+                    <p>這標誌著「地圖」定義的根本轉變——從靜態資訊查詢工具變成動態對話式助理。「Ask Maps」解決的不是「A 到 B 怎麼走」，而是「我有一個複雜需求，幫我找到解決方案」。這是 Gemini 在 Google 生態系中最有說服力的應用案例之一。5 億貢獻者的評論數據加上 Gemini 的理解能力，創造了一個真正理解「人類意圖」而非僅僅「搜尋關鍵字」的產品。這將迫使 Apple Maps 和其他競爭者加速 AI 整合。</p>
                 </div>
             </div>
-            <a href="https://blog.google/products-and-platforms/products/maps/ask-maps-immersive-navigation/" target="_blank" class="card-link">閱讀原文 →</a>
+            <a href="https://blog.google/products-and-platforms/products/maps/ask-maps-immersive-navigation/" target="_blank" class="card-link">閱讀英文原文 →</a>
         </article>
 
-        <!-- Card 5 -->
+        <!-- Card 5: Pentagon CTO -->
         <article class="card" data-category="breaking">
             <div class="card-header">
                 <span class="card-tag tag-breaking">Breaking</span>
-                <span class="card-source">CNBC</span>
+                <span class="card-source">CNBC · 2026-03-12</span>
             </div>
             <h2 class="card-title">五角大廈技術長：Claude 會「污染」國防供應鏈</h2>
             <p class="card-summary">Emil Michael 表示 Claude「內建了不同的政策偏好」，會導致「戰士得到無效的武器」。這是五角大廈首次明確解釋標記原因。</p>
             <div class="card-expand">
                 <button class="expand-btn" onclick="toggleDetails(this)">
-                    <span>查看洞見分析</span>
+                    <span>閱讀完整內容</span>
                     <span>↓</span>
                 </button>
             </div>
             <div class="card-details">
                 <div class="detail-section">
-                    <div class="detail-title">🔍 洞見觀察</div>
-                    <p class="detail-content">Anthropic 的「Constitutional AI」——讓 AI 遵循倫理原則——被視為「污染」。深刻的哲學分歧：AI 應該是中立工具還是內建倫理限制？</p>
+                    <div class="detail-title">📄 完整報導</div>
+                    <div class="detail-content">
+                        <p>國防部技術長 Emil Michael 週四表示，Anthropic 的 Claude 人工智慧模型會「污染」該機構的供應鏈，因為它們「內建了不同的政策偏好」。</p>
+                        
+                        <p>「我們不能讓一家具有不同政策偏好的公司，透過其模型的憲法、靈魂、政策偏好將這些偏好烘焙進去，污染供應鏈，導致我們的戰士得到無效的武器、無效的防彈衣、無效的保護，」Michael 在 CNBC 的「Squawk Box」節目中說。「這正是供應鏈風險認定的來源。」</p>
+                        
+                        <p>Anthropic 是第一家被公開標記為供應鏈風險的美國公司，這是一個非同尋常的舉措，歷史上一直保留給外國對手。這一認定將要求國防承包商和供應商證明他們在與五角大廈的合作中不使用 Claude。</p>
+                        
+                        <p>Michael 週四的評論是國防部迄今為止對為何認為 Anthropic 是供應鏈風險的最清楚解釋。該機構本月早些時候發送了一封官方信函通知該公司這一認定，但信中並未說明 Claude 對國家安全構成什麼風險。</p>
+                        
+                        <p>Anthropic 週一起訴了川普政府，稱政府的行為「史無前例且違法」。Anthropic 在一份文件中表示，該公司正在遭受「無法彌補的」傷害，價值數億美元的合約處於危險之中。</p>
+                        
+                        <p>「這不是懲罰性的，」Michael 週四說。</p>
+                        
+                        <p>他補充說，Anthropic 有一個「巨大的商業業務」，而「極小一部分」來自美國政府。Michael 還駁斥了 Anthropic 關於政府主動聯繫公司並告訴他們不要使用 Anthropic 的說法，稱這種概念是「謠言」。</p>
+                        
+                        <p>Anthropic 成立於 2021 年，由一群從 OpenAI 離職的研究人員和高管創立。該公司以其 Claude 模型家族而聞名，並在向大型企業銷售方面取得了早期成功，包括國防部。</p>
+                        
+                        <p>這家新創公司起草並發布了一份「憲法」，用於幫助訓練其主線、通用存取的 Claude 模型。Anthropic 表示，該憲法在這個過程中扮演「關鍵角色」，其內容「直接塑造 Claude 的行為」。</p>
+                        
+                        <p>即使在 Anthropic 被列入黑名單後，該公司的模型仍被用於支持美軍在伊朗的軍事行動。Palantir 執行長 Alex Karp 週四告訴 CNBC，他的公司作為主要國防承包商，仍在使用 Claude。</p>
+                        
+                        <p>Michael 說過渡到另一個供應商需要時間，國防部不能「一夜之間就拔掉」Anthropic 的技術。他說該機構有一個過渡計劃。「這不只是 Outlook，你可以從桌面刪除它，」Michael 說。</p>
+                    </div>
                 </div>
-                <div class="detail-section">
-                    <div class="detail-title">🌐 影響範圍</div>
-                    <p class="detail-content">• AI 產業：「負責任 AI」可能成政府合約障礙<br>• Anthropic：核心價值觀與政府需求衝突<br>• 社會：引發 AI 倫理公共辯論</p>
+                <div class="insight-box">
+                    <h4>🔍 洞見分析</h4>
+                    <p>這番話揭示了衝突的核心：Anthropic 的「Constitutional AI」設計理念——讓 AI 遵循特定倫理原則——被五角大廈視為「污染」。這是一個深刻的哲學分歧：AI 應該是「中立工具」任人使用，還是應該內建倫理限制？五角大廈的立場暗示，他們想要的是沒有「靈魂」的 AI。諷刺的是，即使被列入黑名單，Palantir 仍在伊朗軍事行動中使用 Claude——這顯示「過渡」需要時間，也揭示了 Claude 在軍事 AI 領域的深度嵌入程度。</p>
                 </div>
             </div>
-            <a href="https://www.cnbc.com/2026/03/12/anthropic-claude-emil-michael-defense.html" target="_blank" class="card-link">閱讀原文 →</a>
+            <a href="https://www.cnbc.com/2026/03/12/anthropic-claude-emil-michael-defense.html" target="_blank" class="card-link">閱讀英文原文 →</a>
         </article>
     </main>
 
     <footer class="footer">
-        <p>由 <a href="https://github.com/clawdbot/clawdbot">Clawdbot</a> 自動整理</p>
+        <p>由 <a href="https://github.com/clawdbot/clawdbot">Clawdbot</a> 自動整理翻譯</p>
     </footer>
 
     <script>
@@ -374,7 +482,7 @@
             const details = card.querySelector('.card-details');
             details.classList.toggle('show');
             btn.querySelector('span:last-child').textContent = details.classList.contains('show') ? '↑' : '↓';
-            btn.querySelector('span:first-child').textContent = details.classList.contains('show') ? '收起' : '查看洞見分析';
+            btn.querySelector('span:first-child').textContent = details.classList.contains('show') ? '收起內容' : '閱讀完整內容';
         }
 
         function filterCards(category) {
