@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 新聞週報 | Claude · ChatGPT · Gemini · Clawdbot</title>
+    <title>AI 日報 | 2026-03-13</title>
     <style>
         * {
             margin: 0;
@@ -12,105 +12,120 @@
         }
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: #fafafa;
             min-height: 100vh;
-            color: #e0e0e0;
+            color: #333;
             line-height: 1.8;
         }
         .container {
-            max-width: 900px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 40px 20px;
         }
         header {
             text-align: center;
             margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eee;
         }
         h1 {
-            font-size: 2.5em;
-            background: linear-gradient(90deg, #00d4ff, #7c3aed, #f472b6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 10px;
+            font-size: 2.2em;
+            color: #1a1a1a;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .date {
+            color: #666;
+            font-size: 1.1em;
+            font-weight: 500;
         }
         .subtitle {
-            color: #888;
-            font-size: 1.1em;
-        }
-        .update-time {
-            color: #666;
-            font-size: 0.9em;
-            margin-top: 10px;
+            color: #999;
+            font-size: 0.95em;
+            margin-top: 8px;
         }
         .news-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            background: #fff;
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 24px;
+            border: 1px solid #e8e8e8;
+            transition: box-shadow 0.2s;
         }
         .news-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
         }
         .news-tag {
             display: inline-block;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75em;
             font-weight: 600;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        .tag-claude { background: #7c3aed; color: white; }
-        .tag-gemini { background: #4285f4; color: white; }
-        .tag-chatgpt { background: #10a37f; color: white; }
-        .tag-breaking { background: #ef4444; color: white; }
+        .tag-claude { background: #f0f0f0; color: #555; }
+        .tag-gemini { background: #e8f4fd; color: #1a73e8; }
+        .tag-chatgpt { background: #e6f7f0; color: #0d9488; }
+        .tag-breaking { background: #fef2f2; color: #dc2626; }
         .news-title {
-            font-size: 1.4em;
-            color: #fff;
-            margin-bottom: 15px;
+            font-size: 1.25em;
+            color: #1a1a1a;
+            margin-bottom: 12px;
             line-height: 1.4;
+            font-weight: 600;
         }
         .news-meta {
-            color: #888;
-            font-size: 0.9em;
-            margin-bottom: 15px;
+            color: #999;
+            font-size: 0.85em;
+            margin-bottom: 14px;
         }
         .news-summary {
-            color: #ccc;
+            color: #555;
             margin-bottom: 20px;
+            font-size: 0.95em;
         }
         .insight-box {
-            background: rgba(124, 58, 237, 0.1);
-            border-left: 4px solid #7c3aed;
-            padding: 15px 20px;
-            margin-bottom: 15px;
+            background: #f8f9fa;
+            border-left: 3px solid #1a1a1a;
+            padding: 16px 20px;
+            margin-bottom: 14px;
             border-radius: 0 8px 8px 0;
         }
         .insight-box h4 {
-            color: #a78bfa;
+            color: #1a1a1a;
             margin-bottom: 8px;
-            font-size: 0.95em;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        .insight-box p {
+            color: #555;
+            font-size: 0.9em;
         }
         .impact-box {
-            background: rgba(59, 130, 246, 0.1);
-            border-left: 4px solid #3b82f6;
-            padding: 15px 20px;
+            background: #f8f9fa;
+            border-left: 3px solid #999;
+            padding: 16px 20px;
             border-radius: 0 8px 8px 0;
         }
         .impact-box h4 {
-            color: #60a5fa;
+            color: #666;
             margin-bottom: 8px;
-            font-size: 0.95em;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        .impact-box p {
+            color: #555;
+            font-size: 0.9em;
         }
         .source-link {
             display: inline-block;
-            margin-top: 15px;
-            color: #00d4ff;
+            margin-top: 16px;
+            color: #1a73e8;
             text-decoration: none;
-            font-size: 0.9em;
+            font-size: 0.85em;
+            font-weight: 500;
         }
         .source-link:hover {
             text-decoration: underline;
@@ -119,36 +134,37 @@
             text-align: center;
             margin-top: 50px;
             padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #666;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 0.85em;
         }
         footer a {
-            color: #888;
+            color: #666;
             text-decoration: none;
         }
         footer a:hover {
-            color: #00d4ff;
+            color: #1a73e8;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🤖 AI 新聞週報</h1>
-            <p class="subtitle">Claude · ChatGPT · Gemini · Clawdbot 最新動態</p>
-            <p class="update-time">📅 最後更新：2026-03-13</p>
+            <h1>📰 AI 日報</h1>
+            <p class="date">2026 年 3 月 13 日</p>
+            <p class="subtitle">Claude · ChatGPT · Gemini 每日精選</p>
         </header>
 
         <article class="news-card">
-            <span class="news-tag tag-breaking">🔥 Breaking</span>
+            <span class="news-tag tag-breaking">Breaking</span>
             <h2 class="news-title">微軟、Google、Amazon、Apple、OpenAI 聯合支持 Anthropic 對抗五角大廈</h2>
-            <p class="news-meta">📰 The Guardian · 2026-03-13</p>
+            <p class="news-meta">The Guardian · 2026-03-13</p>
             <p class="news-summary">
-                微軟向法院提交支持 Anthropic 的意見書（amicus brief），支持其推翻五角大廈「供應鏈風險」標籤的訴訟。Google、Amazon、Apple 和 OpenAI 也簽署了這份意見書。微軟表示：「國防部需要可靠地使用國家最好的技術。每個人都希望確保 AI 不會被用於大規模國內監控或在沒有人類控制的情況下發動戰爭。」Anthropic 是第一家被公開標記為「供應鏈風險」的美國公司。
+                微軟向法院提交支持 Anthropic 的意見書，支持其推翻五角大廈「供應鏈風險」標籤的訴訟。Google、Amazon、Apple 和 OpenAI 也簽署了這份意見書。微軟表示：「國防部需要可靠地使用國家最好的技術。每個人都希望確保 AI 不會被用於大規模國內監控或在沒有人類控制的情況下發動戰爭。」Anthropic 是第一家被公開標記為「供應鏈風險」的美國公司。
             </p>
             <div class="insight-box">
                 <h4>🔍 洞見觀察</h4>
-                <p>這是科技史上罕見的一幕——五大科技巨頭（微軟、Google、Amazon、Apple、OpenAI）聯合起來支持一家「競爭對手」。這反映出整個產業對政府過度干預的擔憂。如果 Anthropic 的「供應鏈風險」標籤成立，任何 AI 公司都可能面臨類似命運。這不只是 Anthropic vs 五角大廈，而是「矽谷 vs 華盛頓」的權力博弈。</p>
+                <p>這是科技史上罕見的一幕——五大科技巨頭聯合支持一家「競爭對手」。這反映出整個產業對政府過度干預的擔憂。如果 Anthropic 的「供應鏈風險」標籤成立，任何 AI 公司都可能面臨類似命運。</p>
             </div>
             <div class="impact-box">
                 <h4>🌐 影響範圍</h4>
@@ -156,19 +172,19 @@
                 <strong>國防承包商：</strong>若標籤成立，必須證明產品不使用 Claude<br>
                 <strong>市場：</strong>AI 公司與政府的關係將成為投資評估的重要因素</p>
             </div>
-            <a href="https://www.theguardian.com/technology/2026/mar/12/microsoft-amicus-brief-anthropic-pentagon" target="_blank" class="source-link">🔗 Read Original (The Guardian) →</a>
+            <a href="https://www.theguardian.com/technology/2026/mar/12/microsoft-amicus-brief-anthropic-pentagon" target="_blank" class="source-link">閱讀原文 →</a>
         </article>
 
         <article class="news-card">
-            <span class="news-tag tag-claude">💰 Claude</span>
+            <span class="news-tag tag-claude">Claude</span>
             <h2 class="news-title">Anthropic 投資 1 億美元成立 Claude Partner Network</h2>
-            <p class="news-meta">📰 Anthropic Official · 2026-03-13</p>
+            <p class="news-meta">Anthropic · 2026-03-13</p>
             <p class="news-summary">
-                Anthropic 宣布成立 Claude Partner Network，投資 1 億美元支持合作夥伴協助企業採用 Claude。值得注意的是，Claude 是唯一在三大雲端平台（AWS、Google Cloud、Microsoft）都可用的前沿 AI 模型。合作夥伴將獲得培訓課程、專屬技術支援、聯合市場開發，以及新的技術認證計畫。Anthropic 還將擴大合作夥伴團隊規模至五倍。
+                Anthropic 宣布成立 Claude Partner Network，投資 1 億美元支持合作夥伴協助企業採用 Claude。Claude 是唯一在三大雲端平台（AWS、Google Cloud、Microsoft）都可用的前沿 AI 模型。合作夥伴將獲得培訓課程、專屬技術支援、聯合市場開發，以及新的技術認證計畫。
             </p>
             <div class="insight-box">
                 <h4>🔍 洞見觀察</h4>
-                <p>在與五角大廈對峙的同時，Anthropic 加碼投資企業市場——這是一個明確的信號：即使失去政府合約，Anthropic 也有信心在商業市場取得成功。「唯一在三大雲端平台都可用」的定位，讓 Claude 成為企業最安全的選擇，不會被鎖定在單一供應商。</p>
+                <p>在與五角大廈對峙的同時，Anthropic 加碼投資企業市場——這是一個明確的信號：即使失去政府合約，Anthropic 也有信心在商業市場取得成功。「唯一在三大雲端平台都可用」的定位，讓 Claude 成為企業最安全的選擇。</p>
             </div>
             <div class="impact-box">
                 <h4>🌐 影響範圍</h4>
@@ -176,19 +192,19 @@
                 <strong>合作夥伴：</strong>顧問公司和 AI 服務商可獲得培訓和資金支持<br>
                 <strong>市場：</strong>Claude 在企業市場的競爭力進一步增強</p>
             </div>
-            <a href="https://www.anthropic.com/news/claude-partner-network" target="_blank" class="source-link">🔗 Read Original (Anthropic) →</a>
+            <a href="https://www.anthropic.com/news/claude-partner-network" target="_blank" class="source-link">閱讀原文 →</a>
         </article>
 
         <article class="news-card">
-            <span class="news-tag tag-claude">📊 Claude</span>
+            <span class="news-tag tag-claude">Claude</span>
             <h2 class="news-title">Claude 新功能：對話中即時生成圖表、圖解等視覺化內容</h2>
-            <p class="news-meta">📰 The Verge · 2026-03-13</p>
+            <p class="news-meta">The Verge · 2026-03-13</p>
             <p class="news-summary">
-                Anthropic 推出 Claude 新功能，允許 AI 聊天機器人在對話中生成自訂圖表、圖解和其他視覺化內容。Claude 會根據對話情境判斷是否需要視覺輔助，並將圖像直接嵌入對話中（而非側邊欄）。例如，討論元素週期表時，Claude 會生成互動式週期表讓用戶點擊查看更多資訊。此功能現已向所有用戶推出並預設開啟。
+                Anthropic 推出 Claude 新功能，允許 AI 在對話中生成自訂圖表、圖解和其他視覺化內容。Claude 會根據對話情境判斷是否需要視覺輔助，並將圖像直接嵌入對話中。例如，討論元素週期表時，Claude 會生成互動式週期表讓用戶點擊查看更多資訊。此功能現已向所有用戶開放。
             </p>
             <div class="insight-box">
                 <h4>🔍 洞見觀察</h4>
-                <p>這是 Claude 從「文字 AI」邁向「多模態 AI」的重要一步。與先前的 artifacts 功能不同，這些視覺化內容直接嵌入對話流程，更自然地輔助溝通。值得注意的是，OpenAI 和 Google 本週也推出了類似功能——AI 聊天機器人的視覺化能力正成為新的競爭焦點。</p>
+                <p>這是 Claude 從「文字 AI」邁向「多模態 AI」的重要一步。與先前的 artifacts 功能不同，這些視覺化內容直接嵌入對話流程，更自然地輔助溝通。OpenAI 和 Google 本週也推出了類似功能——AI 視覺化能力正成為新的競爭焦點。</p>
             </div>
             <div class="impact-box">
                 <h4>🌐 影響範圍</h4>
@@ -196,15 +212,15 @@
                 <strong>商業：</strong>數據分析和簡報製作效率提升<br>
                 <strong>開發者：</strong>系統架構圖、流程圖可即時生成</p>
             </div>
-            <a href="https://www.theverge.com/ai-artificial-intelligence/893625/anthropic-claude-ai-charts-diagrams" target="_blank" class="source-link">🔗 Read Original (The Verge) →</a>
+            <a href="https://www.theverge.com/ai-artificial-intelligence/893625/anthropic-claude-ai-charts-diagrams" target="_blank" class="source-link">閱讀原文 →</a>
         </article>
 
         <article class="news-card">
-            <span class="news-tag tag-gemini">💙 Gemini</span>
+            <span class="news-tag tag-gemini">Gemini</span>
             <h2 class="news-title">Google Maps 大改版：Gemini 驅動的「Ask Maps」讓你用對話探索世界</h2>
-            <p class="news-meta">📰 Google Blog · 2026-03-12</p>
+            <p class="news-meta">Google Blog · 2026-03-12</p>
             <p class="news-summary">
-                Google 宣布 Maps 十年來最大升級。新功能「Ask Maps」讓用戶用自然語言提問，例如「我的手機快沒電了，哪裡可以充電又不用排隊買咖啡？」或「今晚有燈光的公共網球場在哪？」Gemini 會根據 Maps 的即時資訊生成個人化回答並配上地圖。另外，「Immersive Navigation」導航功能也大幅升級，提供 3D 視覺、語音指引、Street View 預覽和停車輔助。
+                Google 宣布 Maps 十年來最大升級。新功能「Ask Maps」讓用戶用自然語言提問，例如「我的手機快沒電了，哪裡可以充電又不用排隊買咖啡？」Gemini 會根據 Maps 的即時資訊生成個人化回答並配上地圖。另外，「Immersive Navigation」導航功能也大幅升級，提供 3D 視覺、語音指引和停車輔助。
             </p>
             <div class="insight-box">
                 <h4>🔍 洞見觀察</h4>
@@ -212,23 +228,23 @@
             </div>
             <div class="impact-box">
                 <h4>🌐 影響範圍</h4>
-                <p><strong>用戶：</strong>複雜的搜尋需求可用一句話解決，不需要多次搜尋和篩選<br>
+                <p><strong>用戶：</strong>複雜的搜尋需求可用一句話解決<br>
                 <strong>商家：</strong>SEO 策略需要適應對話式搜尋，評論內容變得更重要<br>
                 <strong>競爭者：</strong>Apple Maps 和其他導航 app 面臨壓力</p>
             </div>
-            <a href="https://blog.google/products-and-platforms/products/maps/ask-maps-immersive-navigation/" target="_blank" class="source-link">🔗 Read Original (Google Blog) →</a>
+            <a href="https://blog.google/products-and-platforms/products/maps/ask-maps-immersive-navigation/" target="_blank" class="source-link">閱讀原文 →</a>
         </article>
 
         <article class="news-card">
-            <span class="news-tag tag-breaking">⚠️ Breaking</span>
+            <span class="news-tag tag-breaking">Breaking</span>
             <h2 class="news-title">五角大廈技術長：Claude 會「污染」國防供應鏈</h2>
-            <p class="news-meta">📰 CNBC · 2026-03-12</p>
+            <p class="news-meta">CNBC · 2026-03-12</p>
             <p class="news-summary">
-                五角大廈技術長 Emil Michael 接受 CNBC 訪問時表示，Anthropic 的 Claude AI 模型會「污染」國防供應鏈，因為它「內建了不同的政策偏好」。他說：「我們不能讓一家公司把不同的政策偏好透過模型的 constitution、靈魂、政策設定烘焙進去，污染供應鏈，導致我們的戰士得到無效的武器、無效的防彈衣、無效的保護。」這是五角大廈首次明確解釋為何將 Anthropic 標記為「供應鏈風險」。
+                五角大廈技術長 Emil Michael 接受 CNBC 訪問時表示，Anthropic 的 Claude AI 模型會「污染」國防供應鏈，因為它「內建了不同的政策偏好」。他說：「我們不能讓一家公司把不同的政策偏好透過模型的 constitution、靈魂、政策設定烘焙進去，導致我們的戰士得到無效的武器。」這是五角大廈首次明確解釋為何將 Anthropic 標記為「供應鏈風險」。
             </p>
             <div class="insight-box">
                 <h4>🔍 洞見觀察</h4>
-                <p>這番話揭示了衝突的核心：Anthropic 的「Constitutional AI」設計理念——讓 AI 遵循特定倫理原則——被五角大廈視為「污染」。這是一個深刻的哲學分歧：AI 應該是「中立工具」任人使用，還是應該內建倫理限制？五角大廈的立場暗示，他們想要的是沒有「靈魂」的 AI。</p>
+                <p>這番話揭示了衝突的核心：Anthropic 的「Constitutional AI」設計理念——讓 AI 遵循特定倫理原則——被五角大廈視為「污染」。這是一個深刻的哲學分歧：AI 應該是「中立工具」任人使用，還是應該內建倫理限制？</p>
             </div>
             <div class="impact-box">
                 <h4>🌐 影響範圍</h4>
@@ -236,12 +252,12 @@
                 <strong>Anthropic：</strong>核心價值觀與政府需求的根本衝突浮上檯面<br>
                 <strong>社會：</strong>引發 AI 倫理設計的公共辯論</p>
             </div>
-            <a href="https://www.cnbc.com/2026/03/12/anthropic-claude-emil-michael-defense.html" target="_blank" class="source-link">🔗 Read Original (CNBC) →</a>
+            <a href="https://www.cnbc.com/2026/03/12/anthropic-claude-emil-michael-defense.html" target="_blank" class="source-link">閱讀原文 →</a>
         </article>
 
         <footer>
-            <p>由 <a href="https://github.com/clawdbot/clawdbot" target="_blank">Clawdbot</a> 🤖 自動整理與分析</p>
-            <p style="margin-top: 10px;">Sources: The Guardian, Anthropic, The Verge, Google Blog, CNBC</p>
+            <p>由 <a href="https://github.com/clawdbot/clawdbot" target="_blank">Clawdbot</a> 自動整理</p>
+            <p style="margin-top: 8px;">Sources: The Guardian, Anthropic, The Verge, Google Blog, CNBC</p>
         </footer>
     </div>
 </body>
