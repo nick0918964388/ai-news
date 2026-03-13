@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 新聞週報 | Claude · Gemini · Clawdbot</title>
+    <title>AI 新聞週報 | Claude · Gemini · ChatGPT · Clawdbot</title>
     <style>
         * {
             margin: 0;
@@ -65,6 +65,7 @@
         }
         .tag-claude { background: #7c3aed; color: white; }
         .tag-gemini { background: #4285f4; color: white; }
+        .tag-chatgpt { background: #10a37f; color: white; }
         .tag-security { background: #ef4444; color: white; }
         .news-title {
             font-size: 1.4em;
@@ -134,7 +135,7 @@
     <div class="container">
         <header>
             <h1>🤖 AI 新聞週報</h1>
-            <p class="subtitle">Claude · Gemini · Clawdbot 最新動態</p>
+            <p class="subtitle">Claude · ChatGPT · Gemini · Clawdbot 最新動態</p>
             <p class="update-time">📅 最後更新：2026-03-13</p>
         </header>
 
@@ -238,9 +239,49 @@
             <a href="https://www.androidpolice.com/google-is-quietly-working-on-a-big-upgrade-for-gemini-live/" target="_blank" class="source-link">🔗 閱讀原文 →</a>
         </article>
 
+        <article class="news-card">
+            <span class="news-tag tag-chatgpt">🟢 ChatGPT</span>
+            <h2 class="news-title">OpenAI 機器人部門主管辭職：反對 AI 用於戰爭與監控</h2>
+            <p class="news-meta">📰 France 24 · 4 天前</p>
+            <p class="news-summary">
+                OpenAI 機器人部門負責人 Caitlin Kalinowski 宣布辭職，抗議公司與美國國防部的合作協議。她表示：「對美國人的無司法監督監控，以及沒有人類授權的致命自主武器，這些問題值得更多審議。」此前，OpenAI 在 Anthropic 拒絕無條件軍事使用後數小時內，便與五角大廈達成協議。CEO Sam Altman 隨後承諾修改合約，確保模型不會被用於國內監控。
+            </p>
+            <div class="insight-box">
+                <h4>🔍 洞見觀察</h4>
+                <p>這起事件揭示了 AI 公司在商業利益與倫理原則之間的張力。Kalinowski 的辭職代表了一種「用腳投票」的抗議方式，也凸顯了 AI 軍事化的爭議。值得注意的是，她批評的不是合作本身，而是「決策過於倉促，缺乏足夠的防護機制」——這反映了 AI 治理的核心挑戰。</p>
+            </div>
+            <div class="impact-box">
+                <h4>🌐 影響範圍</h4>
+                <p><strong>AI 產業：</strong>人才流失風險——有原則的工程師可能離開軍事合作的公司<br>
+                <strong>企業：</strong>需要建立更透明的 AI 使用政策和倫理審查機制<br>
+                <strong>市場：</strong>AI 公司的軍事合作將成為投資者和用戶評估的重要因素</p>
+            </div>
+            <a href="https://www.france24.com/en/americas/20260308-openai-robotics-chief-quits-over-ai-potential-use-for-war-and-surveillance-artificial-intelligence-pentagon" target="_blank" class="source-link">🔗 閱讀原文 →</a>
+        </article>
+
+        <article class="news-card">
+            <span class="news-tag tag-chatgpt">🎬 ChatGPT</span>
+            <h2 class="news-title">ChatGPT 即將整合 Sora：一句話就能生成 AI 影片</h2>
+            <p class="news-meta">📰 We Are Social Media · 1 天前</p>
+            <p class="news-summary">
+                根據 The Information 報導，OpenAI 正準備將文字生成影片工具 Sora 直接整合到 ChatGPT 介面中。用戶無需切換到其他應用，只需在對話中輸入提示詞，就能生成短影片。這將讓 ChatGPT 成為集文字、圖片、語音、程式碼、影片於一體的全方位創作平台。
+            </p>
+            <div class="insight-box">
+                <h4>🔍 洞見觀察</h4>
+                <p>OpenAI 的策略是將 ChatGPT 打造成「AI 創作中樞」——從單一對話介面就能完成所有類型的內容創作。這種「Super App」模式與微信、抖音的思路類似，目標是最大化用戶黏著度和使用時長。Sora 整合後，ChatGPT 將成為創作者經濟的重要基礎設施。</p>
+            </div>
+            <div class="impact-box">
+                <h4>🌐 影響範圍</h4>
+                <p><strong>創作者：</strong>影片製作門檻大幅降低，概念驗證和快速原型將變得極為簡單<br>
+                <strong>企業：</strong>行銷團隊可快速產出影片內容，縮短 campaign 製作週期<br>
+                <strong>市場：</strong>影片製作軟體和外包服務將面臨 AI 工具的直接競爭</p>
+            </div>
+            <a href="https://wersm.com/chatgpt-may-soon-let-users-create-ai-videos-with-sora/" target="_blank" class="source-link">🔗 閱讀原文 →</a>
+        </article>
+
         <footer>
             <p>由 <a href="https://github.com/clawdbot/clawdbot" target="_blank">Clawdbot</a> 🤖 自動整理與分析</p>
-            <p style="margin-top: 10px;">資料來源：iThome、Storm.mg、TechNews、Android Police</p>
+            <p style="margin-top: 10px;">資料來源：iThome、Storm.mg、TechNews、Android Police、France 24、WERSM</p>
         </footer>
     </div>
 </body>
